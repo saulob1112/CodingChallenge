@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CodingChallenge.MainPage"
+             Title="{Binding Title}"
+             x:Name="MainPageG">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="packageLabel" 
+               Style="{StaticResource PackageTitle}"
+               Text="{Binding Package}"
+               Grid.ColumnSpan="2"/>
+        <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+            <CollectionView 
+                    ItemsSource="{Binding Universities}" 
+                    VerticalOptions="CenterAndExpand" 
+                    Margin="0">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <Grid Margin="10" Padding="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="45" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding name}"
+                                            Style="{StaticResource UniversityName}"
+                                            Grid.ColumnSpan="2" />
+                                <Label Text="{Binding country}"
+                                            Style="{StaticResource UniversityCountry}"
+                                            Grid.Column="0" Grid.Row="1"/>
+                                <Button Text="Web page" 
+                                            Grid.Column="1" Grid.Row="1"
+                                            Style="{StaticResource UniversityButton}"
+                                            CommandParameter="{Binding web_pages[0]}"
+                                            Command="{Binding BindingContext.SendWebPageCommand, Source={x:Reference MainPageG}}"/>
+                            </Grid>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label 
+                        FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="There are not items to show"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </StackLayout>
+        <Image x:Name="PhotoImage"
+               Grid.Row="2" Grid.Column="0"
+               VerticalOptions="Center"
+               HeightRequest="100"/>
+        <Button x:Name="OpenCameraButton"
+                Command="{Binding OpenCamera}"
+                Clicked="btnTakePhoto_Clicked"
+                Text="Take a photo"
+                Style="{StaticResource PhotoButton}"
+                Grid.Row="2" Grid.Column="1"/>
+    </Grid>
+
+</ContentPage>
