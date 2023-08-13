@@ -48,6 +48,7 @@ namespace CodingChallenge.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand LoadUniversitiesCommand { get; private set; }
         public ICommand SendWebPageCommand { get; private set; }
+
         public MainViewModel(INavigation navigation)
         {
             Title = "Coding Challenge for UnoSquare";
@@ -59,8 +60,6 @@ namespace CodingChallenge.ViewModels
             LoadUniversitiesCommand = new Command(async () => await OnLoadUniversitiesCommand());
             SendWebPageCommand = new Command<string>((x) => OnSendWebPageCommand(x));
         }
-
-
 
         public void OnSendWebPageCommand(object link)
         {
