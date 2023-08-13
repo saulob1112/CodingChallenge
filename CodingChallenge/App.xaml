@@ -18,6 +18,7 @@
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0" />
             <Setter Property="BackgroundColor" Value="#4A6572"/>
             <Setter Property="TextColor" Value="#FFFFFF" />
         </Style>
@@ -26,12 +27,14 @@
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0" />
             <Setter Property="BackgroundColor" Value="#CAD5DA"/>
         </Style>
         <Style x:Key="UniversityButton" TargetType="Button">
             <Setter Property="BackgroundColor" Value="#F63D58"/>
             <Setter Property="TextColor" Value="#FFFFFF"/>
             <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="0" />
         </Style>
         <Style x:Key="PhotoButton" TargetType="Button">
             <Setter Property="BackgroundColor" Value="#018786"/>
